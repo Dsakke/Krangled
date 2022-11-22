@@ -18,6 +18,9 @@
     <Filter Include="GameObject">
       <UniqueIdentifier>{d475fa44-b1a4-43fe-b069-452c19bbbbea}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Logger">
+      <UniqueIdentifier>{5cf0b1e5-0e09-4a40-bdbe-a94ff7909587}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -36,7 +39,10 @@
       <Filter>GameObject</Filter>
     </ClCompile>
     <ClCompile Include="Logger.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Logger</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsoleLogger.cpp">
+      <Filter>Logger</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -59,13 +65,16 @@
       <Filter>GameObject</Filter>
     </ClInclude>
     <ClInclude Include="Logger.h">
-      <Filter>Source Files</Filter>
+      <Filter>Logger</Filter>
     </ClInclude>
     <ClInclude Include="LoggerService.h">
-      <Filter>Source Files</Filter>
+      <Filter>Logger</Filter>
     </ClInclude>
     <ClInclude Include="NullLogger.h">
-      <Filter>Source Files</Filter>
+      <Filter>Logger</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsoleLogger.h">
+      <Filter>Logger</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

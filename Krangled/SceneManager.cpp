@@ -1,6 +1,7 @@
 #include "SceneManager.h"
 #include "Scene.h"
 #include <string>
+#include "Logger.h"
 
 void SceneManager::AddScene(std::shared_ptr<Scene> scene)
 {
@@ -33,12 +34,22 @@ inline const std::shared_ptr<Scene> SceneManager::GetScene(const std::string& na
 
 inline std::shared_ptr<Scene> SceneManager::GetScene(size_t idx)
 {
-	return idx < m_Scenes.size() ? m_Scenes[idx] : std::shared_ptr<Scene>{};
+	if (idx < m_Scenes.size())
+	{
+		return m_Scenes[idx];
+	}
+
+	return std::shared_ptr<Scene>{};
 }
 
 inline const std::shared_ptr<Scene> SceneManager::GetScene(size_t idx) const
 {
-	return idx < m_Scenes.size() ? m_Scenes[idx] : std::shared_ptr<Scene>{};
+	if (idx < m_Scenes.size())
+	{
+		return m_Scenes[idx];
+	}
+
+	return std::shared_ptr<Scene>{};
 }
 
 inline std::shared_ptr<Scene> SceneManager::GetCurrentScene()
@@ -53,7 +64,13 @@ inline const std::shared_ptr<Scene> SceneManager::GetCurrentScene() const
 
 void SceneManager::SetCurrentScene(size_t idx)
 {
-	m_pCurrentScene = idx < m_Scenes.size() ? m_Scenes[idx] : m_pCurrentScene;
+	if (idx < m_Scenes.size())
+	{
+		m_pCurrentScene = m_Scenes[idx];
+		return;
+	}
+
+	Logger::LogWarning("SceneManager::SetCurrentScene >> Tried to set a non-existant scene as currentScene");
 }
 
 void SceneManager::SetCurrentScene(const std::string& name)
@@ -62,6 +79,9 @@ void SceneManager::SetCurrentScene(const std::string& name)
 	if (pScene)
 	{
 		m_pCurrentScene = pScene;
+		return;
 	}
+
+	Logger::LogWarning("SceneManager::SetCurrentScene >> Tried to set a non-existant scene as currentScene");
 }
 
