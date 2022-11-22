@@ -9,4 +9,6 @@ public:
 	void Clean();
 
 private:
+	float m_FixedUpdateTimer;
+	float m_FixedUpdateInterval = 1.f / 60.f;
 };

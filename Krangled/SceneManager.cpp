@@ -8,7 +8,7 @@ void SceneManager::AddScene(std::shared_ptr<Scene> scene)
 	m_Scenes.push_back(scene);
 }
 
-inline std::shared_ptr<Scene> SceneManager::GetScene(const std::string& name)
+std::shared_ptr<Scene> SceneManager::GetScene(const std::string& name)
 {
 	auto pred = [=](const std::shared_ptr<Scene>& pScene)
 	{
@@ -20,7 +20,7 @@ inline std::shared_ptr<Scene> SceneManager::GetScene(const std::string& name)
 	return it == m_Scenes.end() ? std::shared_ptr<Scene>{} : *it;
 }
 
-inline const std::shared_ptr<Scene> SceneManager::GetScene(const std::string& name) const
+const std::shared_ptr<Scene> SceneManager::GetScene(const std::string& name) const
 {
 	auto pred = [=](const std::shared_ptr<Scene>& pScene)
 	{
@@ -32,7 +32,7 @@ inline const std::shared_ptr<Scene> SceneManager::GetScene(const std::string& na
 	return it == m_Scenes.end() ? std::shared_ptr<Scene>{} : *it;
 }
 
-inline std::shared_ptr<Scene> SceneManager::GetScene(size_t idx)
+ std::shared_ptr<Scene> SceneManager::GetScene(size_t idx)
 {
 	if (idx < m_Scenes.size())
 	{
@@ -42,7 +42,7 @@ inline std::shared_ptr<Scene> SceneManager::GetScene(size_t idx)
 	return std::shared_ptr<Scene>{};
 }
 
-inline const std::shared_ptr<Scene> SceneManager::GetScene(size_t idx) const
+ const std::shared_ptr<Scene> SceneManager::GetScene(size_t idx) const
 {
 	if (idx < m_Scenes.size())
 	{
@@ -52,12 +52,12 @@ inline const std::shared_ptr<Scene> SceneManager::GetScene(size_t idx) const
 	return std::shared_ptr<Scene>{};
 }
 
-inline std::shared_ptr<Scene> SceneManager::GetCurrentScene()
+std::shared_ptr<Scene> SceneManager::GetCurrentScene()
 {
 	return m_pCurrentScene;
 }
 
-inline const std::shared_ptr<Scene> SceneManager::GetCurrentScene() const
+const std::shared_ptr<Scene> SceneManager::GetCurrentScene() const
 {
 	return m_pCurrentScene;
 }

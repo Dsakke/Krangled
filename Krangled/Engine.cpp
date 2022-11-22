@@ -3,6 +3,7 @@
 #include <string>
 #include "Scene.h"
 #include "GameObject.h"
+#include "Time.h"
 
 void Engine::Init()
 {
@@ -11,6 +12,7 @@ void Engine::Init()
 
 	pScene->AddGameObject(pTestObject);
 	SceneManager::GetInstance().AddScene(pScene);
+	SceneManager::GetInstance().SetCurrentScene(0);
 }
 
 void Engine::Run()
@@ -21,10 +23,14 @@ void Engine::Run()
 	// In the future we will have a better way to end the application, for now we just close the console window
 	while (running)
 	{
-		// Right now the fixed update is not fixed, I will fix this once a time class is implemented
-		SceneManager::GetInstance().GetCurrentScene()->FixedUpdate();
-		SceneManager::GetInstance().GetCurrentScene()->Update();
-
+		Time::GetInstance().UpdateTime();
+		std::shared_ptr<Scene> currentScene = SceneManager::GetInstance().GetCurrentScene();
+		m_FixedUpdateTimer += Time::GetInstance().GetElapsedTime();
+		if (m_FixedUpdateTimer >= m_FixedUpdateInterval)
+		{
+			currentScene->FixedUpdate();
+		}
+		currentScene->Update();
 	}
 }
 

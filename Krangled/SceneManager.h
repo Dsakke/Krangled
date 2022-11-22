@@ -15,12 +15,12 @@ public:
 
 	void AddScene(std::shared_ptr<Scene> scene);
 
-	_NODISCARD inline std::shared_ptr<Scene> GetScene(const std::string& name);
-	_NODISCARD inline const std::shared_ptr<Scene> GetScene(const std::string& name) const;
-	_NODISCARD inline std::shared_ptr<Scene> GetScene(size_t idx);
-	_NODISCARD inline const std::shared_ptr<Scene> GetScene(size_t idx) const;
-	_NODISCARD inline std::shared_ptr<Scene> GetCurrentScene();
-	_NODISCARD inline const std::shared_ptr<Scene> GetCurrentScene() const;
+	_NODISCARD std::shared_ptr<Scene> GetScene(const std::string& name);
+	_NODISCARD const std::shared_ptr<Scene> GetScene(const std::string& name) const;
+	_NODISCARD std::shared_ptr<Scene> GetScene(size_t idx);
+	_NODISCARD const std::shared_ptr<Scene> GetScene(size_t idx) const;
+	_NODISCARD std::shared_ptr<Scene> GetCurrentScene();
+	_NODISCARD const std::shared_ptr<Scene> GetCurrentScene() const;
 
 	void SetCurrentScene(size_t idx);
 	void SetCurrentScene(const std::string& name);
