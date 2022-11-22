@@ -1,43 +1,43 @@
 #include "GameObject.h"
 #include "Component.h"
 
-GameObject::GameObject(const GameObject& gameObj)
+KREN::GameObject::GameObject(const GameObject& gameObj)
 	: m_pComponents{ gameObj.m_pComponents }
 {
 }
 
-GameObject::GameObject(GameObject&& gameObj) noexcept
+KREN::GameObject::GameObject(GameObject&& gameObj) noexcept
 	: m_pComponents{ std::move(gameObj.m_pComponents) }
 {
 }
 
-GameObject& GameObject::operator=(const GameObject& gameObj)
+KREN::GameObject& KREN::GameObject::operator=(const GameObject& gameObj)
 {
 	m_pComponents = gameObj.m_pComponents;
 
 	return *this;
 }
 
-GameObject& GameObject::operator=(GameObject&& gameObj) noexcept
+KREN::GameObject& KREN::GameObject::operator=(GameObject&& gameObj) noexcept
 {
 	gameObj.m_pComponents = std::move(gameObj.m_pComponents);
 
 	return *this;
 }
 
-void GameObject::AddComponent(const std::shared_ptr<Component>& pComp)
+void KREN::GameObject::AddComponent(const std::shared_ptr<Component>& pComp)
 {
 	m_pComponents.push_back(pComp);
 }
 
-void GameObject::AddComponent(std::shared_ptr<Component>&& pComp)
+void KREN::GameObject::AddComponent(std::shared_ptr<Component>&& pComp)
 {
 	m_pComponents.push_back( pComp );
 }
 
 
 
-void GameObject::Update()
+void KREN::GameObject::Update()
 {
 	for (size_t i{}; i < m_pComponents.size(); ++i)
 	{
@@ -45,7 +45,7 @@ void GameObject::Update()
 	}
 }
 
-void GameObject::FixedUpdate()
+void KREN::GameObject::FixedUpdate()
 {
 	for (size_t i{}; i < m_pComponents.size(); ++i)
 	{

@@ -2,7 +2,7 @@
 
 int main()
 {
-	Engine engine{};
+	KREN::Engine engine{};
 
 	engine.Init();
 	engine.Run();

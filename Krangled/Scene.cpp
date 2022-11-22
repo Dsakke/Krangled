@@ -1,13 +1,13 @@
 #include "Scene.h"
 #include "GameObject.h"
 
-Scene::Scene(const std::string& name, SceneVector pObjects)
+KREN::Scene::Scene(const std::string& name, SceneVector pObjects)
 	: m_Name{ name }
 	, m_pGameObjects{ pObjects }
 {
 }
 
-Scene::Scene(const Scene& scene)
+KREN::Scene::Scene(const Scene& scene)
 	: m_Name{ scene.m_Name }
 	, m_pGameObjects{ scene.m_pGameObjects.size(), std::allocator<std::shared_ptr<GameObject>>{} }
 {
@@ -18,13 +18,13 @@ Scene::Scene(const Scene& scene)
 	}
 }
 
-Scene::Scene(Scene&& scene) noexcept
+KREN::Scene::Scene(Scene&& scene) noexcept
 	: m_Name{ std::move(scene.m_Name) }
 	, m_pGameObjects{ std::move(scene.m_pGameObjects) }
 {
 }
 
-Scene& Scene::operator=(const Scene& scene)
+KREN::Scene& KREN::Scene::operator=(const Scene& scene)
 {
 	m_Name = scene.m_Name;
 	m_pGameObjects.resize(scene.m_pGameObjects.size());
@@ -37,7 +37,7 @@ Scene& Scene::operator=(const Scene& scene)
 	return *this;
 }
 
-Scene& Scene::operator=(Scene&& scene) noexcept
+KREN::Scene& KREN::Scene::operator=(Scene&& scene) noexcept
 {
 	m_Name = std::move(scene.m_Name);
 	m_pGameObjects = std::move(scene.m_pGameObjects);
@@ -46,12 +46,12 @@ Scene& Scene::operator=(Scene&& scene) noexcept
 
 
 
-void Scene::Setname(const std::string& name)
+void KREN::Scene::Setname(const std::string& name)
 {
 	m_Name = name;
 }
 
-void Scene::Update()
+void KREN::Scene::Update()
 {
 	for (size_t i{}; i < m_pGameObjects.size(); ++i)
 	{
@@ -59,7 +59,7 @@ void Scene::Update()
 	}
 }
 
-void Scene::FixedUpdate()
+void KREN::Scene::FixedUpdate()
 {
 	for (size_t i{}; i < m_pGameObjects.size(); ++i)
 	{
@@ -67,7 +67,7 @@ void Scene::FixedUpdate()
 	}
 }
 
-void Scene::AddGameObject(std::shared_ptr<GameObject> pObj)
+void KREN::Scene::AddGameObject(std::shared_ptr<GameObject> pObj)
 {
 	m_pGameObjects.push_back(pObj);
 }

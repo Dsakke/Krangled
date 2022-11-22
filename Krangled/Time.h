@@ -1,18 +1,20 @@
 #pragma once
 #include "Singleton.h"
 #include <chrono>
-
-class Time final : public Singleton<Time>
+namespace KREN
 {
-public:
-	void UpdateTime(); // I want to figure out a way to not expose this as much, the end user should not be able to update this
-	float GetElapsedTime() const;
-private:
-	friend class Singleton<Time>;
-	Time();
+	class Time final : public Singleton<Time>
+	{
+	public:
+		void UpdateTime(); // I want to figure out a way to not expose this as much, the end user should not be able to update this
+		float GetElapsedTime() const;
+	private:
+		friend class Singleton<Time>;
+		Time();
 
-	std::chrono::high_resolution_clock::time_point m_PrevTime;
-	// ElapsedTime in seconds 
-	float m_ElapsedTime;
+		std::chrono::high_resolution_clock::time_point m_PrevTime;
+		// ElapsedTime in seconds 
+		float m_ElapsedTime;
 	
-};
+	};
+}

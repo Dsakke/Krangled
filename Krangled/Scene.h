@@ -3,28 +3,31 @@
 #include <string>
 #include <memory>
 
-class GameObject;
-class Scene final
+namespace KREN
 {
-public:
-	using SceneVector = std::vector<std::shared_ptr<GameObject>>;
+	class GameObject;
+	class Scene final
+	{
+	public:
+		using SceneVector = std::vector<std::shared_ptr<GameObject>>;
 
-	Scene(const std::string& name, SceneVector pObjects = SceneVector{});
-	Scene(const Scene& scene);
-	Scene(Scene&& scene) noexcept;
-	Scene& operator=(const Scene& scene);
-	Scene& operator=(Scene&& scene) noexcept;
+		Scene(const std::string& name, SceneVector pObjects = SceneVector{});
+		Scene(const Scene& scene);
+		Scene(Scene&& scene) noexcept;
+		Scene& operator=(const Scene& scene);
+		Scene& operator=(Scene&& scene) noexcept;
 
-	inline const std::string& GetName() const { return m_Name; }
-	void Setname(const std::string& name);
+		inline const std::string& GetName() const { return m_Name; }
+		void Setname(const std::string& name);
 
-	void Update();
-	void FixedUpdate();
+		void Update();
+		void FixedUpdate();
 
-	void AddGameObject(std::shared_ptr<GameObject> pObj);
+		void AddGameObject(std::shared_ptr<GameObject> pObj);
 
-private:
-	std::string m_Name;
+	private:
+		std::string m_Name;
 
-	SceneVector m_pGameObjects;
-};
+		SceneVector m_pGameObjects;
+	};
+}

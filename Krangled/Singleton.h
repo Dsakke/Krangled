@@ -1,25 +1,28 @@
 #pragma once
 #include <memory>
 
-template<class T>
-class Singleton
+namespace KREN
 {
-public:
-	virtual ~Singleton() = default;
-
-	Singleton(const Singleton&) = delete;
-	Singleton(Singleton&&) = delete;
-	Singleton& operator=(const Singleton&) = delete;
-	Singleton& operator=(Singleton&&) = delete;
-
-	static T& GetInstance()
+	template<class T>
+	class Singleton
 	{
-		static T instance{};
-		return instance;
-	}
+	public:
+		virtual ~Singleton() = default;
 
-protected:
-	// protected constructor because we only want this class itself to be able to create an istance
-	Singleton() = default;
+		Singleton(const Singleton&) = delete;
+		Singleton(Singleton&&) = delete;
+		Singleton& operator=(const Singleton&) = delete;
+		Singleton& operator=(Singleton&&) = delete;
 
-};
+		static T& GetInstance()
+		{
+			static T instance{};
+			return instance;
+		}
+
+	protected:
+		// protected constructor because we only want this class itself to be able to create an istance
+		Singleton() = default;
+
+	};
+}

@@ -3,12 +3,12 @@
 #include <string>
 #include "Logger.h"
 
-void SceneManager::AddScene(std::shared_ptr<Scene> scene)
+void KREN::SceneManager::AddScene(std::shared_ptr<Scene> scene)
 {
 	m_Scenes.push_back(scene);
 }
 
-std::shared_ptr<Scene> SceneManager::GetScene(const std::string& name)
+std::shared_ptr<KREN::Scene> KREN::SceneManager::GetScene(const std::string& name)
 {
 	auto pred = [=](const std::shared_ptr<Scene>& pScene)
 	{
@@ -20,7 +20,7 @@ std::shared_ptr<Scene> SceneManager::GetScene(const std::string& name)
 	return it == m_Scenes.end() ? std::shared_ptr<Scene>{} : *it;
 }
 
-const std::shared_ptr<Scene> SceneManager::GetScene(const std::string& name) const
+const std::shared_ptr<KREN::Scene> KREN::SceneManager::GetScene(const std::string& name) const
 {
 	auto pred = [=](const std::shared_ptr<Scene>& pScene)
 	{
@@ -32,7 +32,7 @@ const std::shared_ptr<Scene> SceneManager::GetScene(const std::string& name) con
 	return it == m_Scenes.end() ? std::shared_ptr<Scene>{} : *it;
 }
 
- std::shared_ptr<Scene> SceneManager::GetScene(size_t idx)
+ std::shared_ptr<KREN::Scene> KREN::SceneManager::GetScene(size_t idx)
 {
 	if (idx < m_Scenes.size())
 	{
@@ -42,7 +42,7 @@ const std::shared_ptr<Scene> SceneManager::GetScene(const std::string& name) con
 	return std::shared_ptr<Scene>{};
 }
 
- const std::shared_ptr<Scene> SceneManager::GetScene(size_t idx) const
+ const std::shared_ptr<KREN::Scene> KREN::SceneManager::GetScene(size_t idx) const
 {
 	if (idx < m_Scenes.size())
 	{
@@ -52,17 +52,17 @@ const std::shared_ptr<Scene> SceneManager::GetScene(const std::string& name) con
 	return std::shared_ptr<Scene>{};
 }
 
-std::shared_ptr<Scene> SceneManager::GetCurrentScene()
+std::shared_ptr<KREN::Scene> KREN::SceneManager::GetCurrentScene()
 {
 	return m_pCurrentScene;
 }
 
-const std::shared_ptr<Scene> SceneManager::GetCurrentScene() const
+const std::shared_ptr<KREN::Scene> KREN::SceneManager::GetCurrentScene() const
 {
 	return m_pCurrentScene;
 }
 
-void SceneManager::SetCurrentScene(size_t idx)
+void KREN::SceneManager::SetCurrentScene(size_t idx)
 {
 	if (idx < m_Scenes.size())
 	{
@@ -73,7 +73,7 @@ void SceneManager::SetCurrentScene(size_t idx)
 	Logger::LogWarning("SceneManager::SetCurrentScene >> Tried to set a non-existant scene as currentScene");
 }
 
-void SceneManager::SetCurrentScene(const std::string& name)
+void KREN::SceneManager::SetCurrentScene(const std::string& name)
 {
 	std::shared_ptr<Scene> pScene = GetScene(name);
 	if (pScene)

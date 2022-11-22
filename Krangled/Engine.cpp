@@ -5,7 +5,7 @@
 #include "GameObject.h"
 #include "Time.h"
 
-void Engine::Init()
+void KREN::Engine::Init()
 {
 	std::shared_ptr<Scene> pScene = std::make_shared<Scene>(std::string{ "TestScene" });
 	std::shared_ptr<GameObject> pTestObject = std::make_shared<GameObject>();
@@ -15,7 +15,7 @@ void Engine::Init()
 	SceneManager::GetInstance().SetCurrentScene(0);
 }
 
-void Engine::Run()
+void KREN::Engine::Run()
 {
 
 	bool running = true;
@@ -34,6 +34,6 @@ void Engine::Run()
 	}
 }
 
-void Engine::Clean()
+void KREN::Engine::Clean()
 {
 }
