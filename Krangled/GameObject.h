@@ -21,6 +21,7 @@ namespace KREN
 
 		void Update();
 		void FixedUpdate();
+		void Render();
 
 		// Will return the first component found of the specified type
 		template<class T>

@@ -15,6 +15,9 @@ namespace KREN
 
 		// Update that happens after a fixed amount of time
 		virtual void FixedUpdate() {}
+
+		// Happens after Update, put any code to do with rendering here
+		virtual void Render() {}
 	private:
 	};
 }

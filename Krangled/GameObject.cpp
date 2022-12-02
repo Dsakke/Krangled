@@ -52,3 +52,11 @@ void KREN::GameObject::FixedUpdate()
 		m_pComponents[i]->FixedUpdate();
 	}
 }
+
+void KREN::GameObject::Render()
+{
+	for (size_t i{}; i < m_pComponents.size(); ++i)
+	{
+		m_pComponents[i]->Render();
+	}
+}

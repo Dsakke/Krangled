@@ -67,6 +67,14 @@ void KREN::Scene::FixedUpdate()
 	}
 }
 
+void KREN::Scene::Render()
+{
+	for (size_t i{}; i < m_pGameObjects.size(); ++i)
+	{
+		m_pGameObjects[i]->Render();
+	}
+}
+
 void KREN::Scene::AddGameObject(std::shared_ptr<GameObject> pObj)
 {
 	m_pGameObjects.push_back(pObj);

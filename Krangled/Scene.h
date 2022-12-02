@@ -22,7 +22,7 @@ namespace KREN
 
 		void Update();
 		void FixedUpdate();
-
+		void Render();
 		void AddGameObject(std::shared_ptr<GameObject> pObj);
 
 	private:
