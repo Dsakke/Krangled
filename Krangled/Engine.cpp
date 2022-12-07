@@ -7,6 +7,9 @@
 #include "SDL.h"
 #include "Renderer.h"
 #include "SquareRenderComp.h"
+#include "Input.h"
+#include "Command.h"
+#include "QuitCommand.h"
 
 void KREN::Engine::Init()
 {
@@ -26,11 +29,14 @@ void KREN::Engine::Run()
 {
 
 	bool running = true;
+	std::shared_ptr<QuitCommand> pQuitCommand{ std::make_shared<QuitCommand>(running) };
+	Input::GetInstance().SetQuitCommand(pQuitCommand);
 
 	// In the future we will have a better way to end the application, for now we just close the console window
 	while (running)
 	{
 		Time::GetInstance().UpdateTime();
+		Input::GetInstance().UpdateInput();
 		std::shared_ptr<Scene> currentScene = SceneManager::GetInstance().GetCurrentScene();
 		m_FixedUpdateTimer += Time::GetInstance().GetElapsedTime();
 		if (m_FixedUpdateTimer >= m_FixedUpdateInterval)
