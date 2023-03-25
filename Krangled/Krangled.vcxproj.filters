@@ -27,6 +27,12 @@
     <Filter Include="Input">
       <UniqueIdentifier>{c0d6e521-d76c-4a2f-ac57-9c529208bac9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ResourceManager">
+      <UniqueIdentifier>{3053b5fa-0326-46a6-8667-9dc86c0b2a4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Image">
+      <UniqueIdentifier>{bfa23146-2b0a-4a26-8f51-2b101d85dc77}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -61,6 +67,15 @@
     </ClCompile>
     <ClCompile Include="Input.cpp">
       <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Loaders.cpp">
+      <Filter>ResourceManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageComponent.cpp">
+      <Filter>Components</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -111,6 +126,18 @@
     </ClInclude>
     <ClInclude Include="QuitCommand.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>ResourceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Loaders.h">
+      <Filter>ResourceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Image</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageComponent.h">
+      <Filter>Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
