@@ -77,6 +77,12 @@
     <ClCompile Include="ImageComponent.cpp">
       <Filter>Components</Filter>
     </ClCompile>
+    <ClCompile Include="Transform.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">
@@ -137,6 +143,9 @@
       <Filter>Image</Filter>
     </ClInclude>
     <ClInclude Include="ImageComponent.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
       <Filter>Components</Filter>
     </ClInclude>
   </ItemGroup>

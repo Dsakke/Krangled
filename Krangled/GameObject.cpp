@@ -1,5 +1,6 @@
 #include "GameObject.h"
 #include "Component.h"
+#include <algorithm>
 
 KREN::GameObject::GameObject(const GameObject& gameObj)
 	: m_pComponents{ gameObj.m_pComponents }
@@ -28,11 +29,13 @@ KREN::GameObject& KREN::GameObject::operator=(GameObject&& gameObj) noexcept
 void KREN::GameObject::AddComponent(const std::shared_ptr<Component>& pComp)
 {
 	m_pComponents.push_back(pComp);
+	pComp->SetOwner(weak_from_this());
 }
 
 void KREN::GameObject::AddComponent(std::shared_ptr<Component>&& pComp)
 {
 	m_pComponents.push_back( pComp );
+	pComp->SetOwner(weak_from_this());
 }
 
 
@@ -58,5 +61,14 @@ void KREN::GameObject::Render()
 	for (size_t i{}; i < m_pComponents.size(); ++i)
 	{
 		m_pComponents[i]->Render();
+	}
+}
+
+void KREN::GameObject::RemoveComponent(std::weak_ptr<KREN::Component> pComponent)
+{
+	auto it = std::find(m_pComponents.begin(), m_pComponents.end(), pComponent.lock());
+	if (it != m_pComponents.end())
+	{
+		m_pComponents.erase(it);
 	}
 }

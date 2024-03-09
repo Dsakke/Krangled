@@ -6,10 +6,10 @@
 namespace KREN
 {
 	class Component;
-	class GameObject final
+	class GameObject final : public std::enable_shared_from_this<GameObject>
 	{
 	public:
-		GameObject() = default;
+		GameObject() : m_pComponents{} {};
 		GameObject(const GameObject& gameObj);
 		GameObject(GameObject&& gameObj) noexcept;
 		GameObject& operator=(const GameObject& gameObj);
@@ -30,6 +30,8 @@ namespace KREN
 		// Will return all the components of type
 		template<class T>
 		_NODISCARD std::vector<std::weak_ptr<T>> GetComponents();
+
+		void RemoveComponent(std::weak_ptr<KREN::Component> component);
 	private:
 
 		// shared pointer because even though this should be the only owner 
@@ -48,6 +50,8 @@ namespace KREN
 				return std::weak_ptr<T>{ pShrd };
 			}
 		}
+
+		return std::weak_ptr<T>{};
 	}
 
 	template<class T>

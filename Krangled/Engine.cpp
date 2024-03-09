@@ -13,6 +13,7 @@
 #include "ResourceManager.h"
 #include "Texture.h"
 #include "ConsoleLogger.h"
+#include "Transform.h"
 
 void KREN::Engine::Init()
 {
@@ -22,8 +23,11 @@ void KREN::Engine::Init()
 	// Test Scene setup
 	std::shared_ptr<Scene> pScene = std::make_shared<Scene>(std::string{ "TestScene" });
 	std::shared_ptr<GameObject> pTestObject = std::make_shared<GameObject>();
+	std::shared_ptr<KREN::Transform> pTransform = std::make_shared<KREN::Transform>();
 	std::shared_ptr<ImageComponent> pImageComponent = std::make_shared<ImageComponent>(ResourceManager::GetInstance().GetResource<Texture>("Resources\\Test.png"));
 	pTestObject->AddComponent(pImageComponent);
+	pTestObject->AddComponent(pTransform);
+
 
 	pScene->AddGameObject(pTestObject);
 	SceneManager::GetInstance().AddScene(pScene);

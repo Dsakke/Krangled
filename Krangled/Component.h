@@ -3,7 +3,7 @@
 namespace KREN
 {
 	class GameObject;
-	class Component : std::enable_shared_from_this<Component>
+	class Component : public std::enable_shared_from_this<Component>
 	{
 	public:
 		virtual ~Component() = default;

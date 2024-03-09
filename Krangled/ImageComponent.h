@@ -1,6 +1,7 @@
 #pragma once
 #include "Component.h"
 #include <memory>
+#include "KRMath.h"
 class Texture;
 
 namespace KREN
