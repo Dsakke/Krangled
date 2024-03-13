@@ -2,17 +2,17 @@
 #include "Component.h"
 #include <memory>
 #include "KRMath.h"
-class Texture;
 
 namespace KREN
 {
+	class Texture;
 	class ImageComponent final : public Component
 	{
 	public:
-		ImageComponent(Texture* pTex);
+		ImageComponent(std::shared_ptr<Texture> pTex);
 
 		void Render() override;
 	private:
-		Texture* m_pTexture;
+		std::shared_ptr<Texture> m_pTexture;
 	};
 }

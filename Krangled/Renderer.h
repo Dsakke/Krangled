@@ -1,11 +1,12 @@
 #pragma once
 #include <memory>
 #include "Singleton.h"
-
-typedef struct SDL_Window SDL_Window;
-typedef struct SDL_Renderer SDL_Renderer;
+#include "KRMath.h"
+#include "Loaders.h"
 namespace KREN
 {
+	class Texture;
+	class IRenderer;
 	class Renderer final : public Singleton<Renderer>
 	{
 	public:
@@ -14,16 +15,20 @@ namespace KREN
 		Renderer& operator=(const Renderer&) = delete;
 		Renderer& operator=(Renderer&&) = delete;
 
-		_NODISCARD SDL_Renderer* GetRenderer();
-
 		void Init();
 		void Render();
-	private:
-		Renderer() = default;
-		friend class Singleton<Renderer>;
+		void RenderTexture(std::weak_ptr<Texture> pTexture, const KRM::IRect& destRect);
+		void RenderTexture(std::weak_ptr<Texture> pTexture, const KRM::Vector<int, 2>& position);
+		void RenderTexture(std::weak_ptr<Texture> pTexture, int x, int y, int width, int height);
 
-		SDL_Window* m_pWindow;
-		SDL_Renderer* m_pRenderer;
-	
+
+
+		~Renderer();
+	private:
+		Renderer();
+		friend class Singleton<Renderer>;
+		friend std::shared_ptr<KREN::Texture> KREN::KRInternal::LoadImage(const std::string& path); // this is bad
+
+		std::shared_ptr<IRenderer> m_pRenderer;
 	};
 }

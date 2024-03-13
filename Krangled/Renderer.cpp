@@ -1,25 +1,45 @@
 #include "Renderer.h"
-#include "SDL.h"
-
-SDL_Renderer* KREN::Renderer::GetRenderer()
-{
-	return m_pRenderer;
-}
+#include "Settings.h"
+#include "IRenderer.h"
+#ifdef SDL_RENDERING
+#include "SDLRenderer.h"
+#endif 
 
 void KREN::Renderer::Init()
 {
-	SDL_Init(SDL_INIT_EVERYTHING);
-	m_pWindow = SDL_CreateWindow("Title", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 600, 600, SDL_WINDOW_SHOWN);
-
-	m_pRenderer = SDL_CreateRenderer(m_pWindow, -1, 0);
-
-	SDL_SetRenderDrawColor(m_pRenderer, 0, 0, 0, 255);
-
-
+#ifdef SDL_RENDERING
+	if (!m_pRenderer)
+	{
+		m_pRenderer = std::make_shared<KRInternal::SDLRenderer>();
+	}
+#endif 
+	m_pRenderer->Init();
 }
 
 void KREN::Renderer::Render()
 {
-	SDL_RenderPresent(m_pRenderer);
-	SDL_RenderClear(m_pRenderer);
+	m_pRenderer->Render();
+}
+
+void KREN::Renderer::RenderTexture(std::weak_ptr<Texture> pTexture, const KRM::IRect& destRect)
+{
+	m_pRenderer->RenderTexture(pTexture, destRect);
+}
+
+void KREN::Renderer::RenderTexture(std::weak_ptr<Texture> pTexture, const KRM::Vector<int, 2>& position)
+{
+	m_pRenderer->RenderTexture(pTexture, position);
+}
+
+void KREN::Renderer::RenderTexture(std::weak_ptr<Texture> pTexture, int x, int y, int width, int height)
+{
+	m_pRenderer->RenderTexture(pTexture, x, y, width, height);
+}
+
+KREN::Renderer::~Renderer()
+{
+}
+
+KREN::Renderer::Renderer()
+{
 }

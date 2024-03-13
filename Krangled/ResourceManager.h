@@ -11,31 +11,31 @@ namespace KREN
 	{
 	public:
 		template<typename T>
-		T* GetResource(const std::string& path);
+		std::shared_ptr<T> GetResource(const std::string& path);
 	private:
 
 		template<typename T>
-		T* LoadResource(const std::string& path) const;
+		std::shared_ptr<T> LoadResource(const std::string& path) const;
 
-		std::unordered_map<std::string, void*>	m_Resources;
+		std::unordered_map<std::string, std::shared_ptr<void>>	m_Resources;
 	};
 
 	template<typename T>
-	inline T* ResourceManager::GetResource(const std::string& path)
+	inline std::shared_ptr<T> ResourceManager::GetResource(const std::string& path)
 	{
 		auto it = m_Resources.find(path);
 		if (it == m_Resources.end())
 		{
-			T* pResource = LoadResource<T>(path);
-			m_Resources.insert(std::make_pair(path, static_cast<void*>(pResource)));
+			std::shared_ptr<T> pResource = LoadResource<T>(path);
+			m_Resources.insert(std::make_pair(path, std::static_pointer_cast<void>(pResource)));
 			return pResource;
 		}
 
-		return static_cast<T*>(it->second);
+		return std::static_pointer_cast<T>(it->second);
 	}
 
 	template<typename T>
-	inline T* ResourceManager::LoadResource(const std::string& path) const
+	inline std::shared_ptr<T> ResourceManager::LoadResource(const std::string& path) const
 	{
 		return KRInternal::Load<T>(path);
 	}
