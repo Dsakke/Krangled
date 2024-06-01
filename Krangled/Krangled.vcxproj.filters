@@ -62,7 +62,7 @@
     <ClCompile Include="Time.cpp">
       <Filter>Time</Filter>
     </ClCompile>
-    <ClCompile Include="Input.cpp">
+    <ClCompile Include="SDLInputManager.cpp">
       <Filter>Input</Filter>
     </ClCompile>
     <ClCompile Include="Loaders.cpp">
@@ -85,6 +85,15 @@
     </ClCompile>
     <ClCompile Include="SDLRenderer.cpp">
       <Filter>Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="IInputAction.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveCommand.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -121,10 +130,10 @@
     <ClInclude Include="Time.h">
       <Filter>Time</Filter>
     </ClInclude>
-    <ClInclude Include="Input.h">
+    <ClInclude Include="SDLInputManager.h">
       <Filter>Input</Filter>
     </ClInclude>
-    <ClInclude Include="Command.h">
+    <ClInclude Include="ICommand.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="QuitCommand.h">
@@ -155,5 +164,21 @@
       <Filter>Rendering</Filter>
     </ClInclude>
     <ClInclude Include="Settings.h" />
+    <ClInclude Include="SDLTexture.h">
+      <Filter>Image</Filter>
+    </ClInclude>
+    <ClInclude Include="InputAction.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="KRKeyCodes.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="IInputManager.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveCommand.h" />
   </ItemGroup>
 </Project>

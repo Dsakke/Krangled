@@ -1,15 +1,15 @@
 #pragma once
-#include "Command.h"
+#include "ICommand.h"
 namespace KREN
 {
-	class QuitCommand final: public Command
+	class QuitCommand final: public ICommand
 	{
 	public:
 		QuitCommand(bool& isRunning)
 			: m_IsRunning{ isRunning }
 		{}
 
-		void Do() override
+		void Execute() override
 		{
 			m_IsRunning = false;
 		}

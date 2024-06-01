@@ -181,8 +181,11 @@ XCOPY "$(SolutionDir)3rdParty\$(PlatformTarget)\Libs\SDL_Image\SDL2_image.dll" "
     <ClCompile Include="ConsoleLogger.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="IInputAction.cpp" />
     <ClCompile Include="ImageComponent.cpp" />
     <ClCompile Include="Input.cpp" />
+    <ClCompile Include="MoveCommand.cpp" />
+    <ClCompile Include="SDLInputManager.cpp" />
     <ClCompile Include="Loaders.cpp" />
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="main.cpp" />
@@ -195,18 +198,24 @@ XCOPY "$(SolutionDir)3rdParty\$(PlatformTarget)\Libs\SDL_Image\SDL2_image.dll" "
     <ClCompile Include="Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Command.h" />
+    <ClInclude Include="ICommand.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="ConsoleLogger.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Input.h" />
+    <ClInclude Include="InputAction.h" />
+    <ClInclude Include="IInputManager.h" />
     <ClInclude Include="ImageComponent.h" />
     <ClInclude Include="IRenderer.h" />
+    <ClInclude Include="KRKeyCodes.h" />
+    <ClInclude Include="MoveCommand.h" />
     <ClInclude Include="SDLRenderer.h" />
+    <ClInclude Include="SDLTexture.h" />
     <ClInclude Include="Settings.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="Loaders.h" />
-    <ClInclude Include="Input.h" />
+    <ClInclude Include="SDLInputManager.h" />
     <ClInclude Include="QuitCommand.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="Logger.h" />
