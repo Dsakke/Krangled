@@ -23,6 +23,7 @@ void KREN::Engine::Init()
 	Renderer::GetInstance().Init();
 
 	Logger::ChangeService(std::make_unique<ConsoleLogger>());
+
 	// Test Scene setup
 	std::shared_ptr<Scene> pScene = std::make_shared<Scene>(std::string{ "TestScene" });
 	std::shared_ptr<GameObject> pTestObject = std::make_shared<GameObject>();

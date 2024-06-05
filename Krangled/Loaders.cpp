@@ -5,14 +5,16 @@
 #include "Logger.h"
 #include "SDLRenderer.h"
 #include "Texture.h"
-
+#include <print>
 
 std::shared_ptr<KREN::Texture> KREN::KRInternal::LoadImage(const std::string& path)
 {
 	SDL_Surface* pSurf = IMG_Load(path.c_str());
+
 	if (!pSurf)
 	{
-		Logger::LogError("IMG_Load: %s\n" + *IMG_GetError());
+		std::string str = IMG_GetError();
+		Logger::LogError("IMG_Load: " + str);
 	}
 
 	SDL_Texture* pTex = SDL_CreateTextureFromSurface(std::dynamic_pointer_cast<SDLRenderer>(Renderer::GetInstance().m_pRenderer)->m_pRenderer, pSurf);
