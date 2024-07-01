@@ -179,6 +179,5 @@
     <ClInclude Include="Input.h">
       <Filter>Input</Filter>
     </ClInclude>
-    <ClInclude Include="MoveCommand.h" />
   </ItemGroup>
 </Project>

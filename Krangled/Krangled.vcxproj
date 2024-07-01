@@ -229,7 +229,6 @@ XCOPY "$(SolutionDir)3rdParty\$(PlatformTarget)\Libs\SDL_Image\SDL2_image.dll" "
     <ClInclude Include="ImageComponent.h" />
     <ClInclude Include="IRenderer.h" />
     <ClInclude Include="KRKeyCodes.h" />
-    <ClInclude Include="MoveCommand.h" />
     <ClInclude Include="SDLRenderer.h" />
     <ClInclude Include="SDLTexture.h" />
     <ClInclude Include="Settings.h" />

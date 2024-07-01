@@ -24,21 +24,6 @@ void KREN::Engine::Init()
 
 	Logger::ChangeService(std::make_unique<ConsoleLogger>());
 
-	// Test Scene setup
-	std::shared_ptr<Scene> pScene = std::make_shared<Scene>(std::string{ "TestScene" });
-	std::shared_ptr<GameObject> pTestObject = std::make_shared<GameObject>();
-	std::shared_ptr<Transform> pTransform = std::make_shared<Transform>();
-	std::shared_ptr<ImageComponent> pImageComponent = std::make_shared<ImageComponent>(ResourceManager::GetInstance().GetResource<Texture>("Resources\\Test.png"));
-	pTestObject->AddComponent(pImageComponent);
-	pTestObject->AddComponent(pTransform);
-
-	std::shared_ptr<IInputManager> pInputManager = Input::GetInstance().GetInputManager().lock();
-	pInputManager->AddButtonDownAction(InputAction{ std::make_unique<MoveCommand>(pTransform), KREN::KeyCode::w });
-
-
-	pScene->AddGameObject(pTestObject);
-	SceneManager::GetInstance().AddScene(pScene);
-	SceneManager::GetInstance().SetCurrentScene(0);
 
 }
 
