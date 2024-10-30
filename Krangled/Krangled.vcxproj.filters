@@ -83,7 +83,7 @@
     <ClCompile Include="SDLRenderer.cpp">
       <Filter>Rendering</Filter>
     </ClCompile>
-    <ClCompile Include="IInputAction.cpp">
+    <ClCompile Include="InputAction.cpp">
       <Filter>Input</Filter>
     </ClCompile>
     <ClCompile Include="Input.cpp">
