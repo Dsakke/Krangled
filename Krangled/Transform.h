@@ -1,6 +1,6 @@
 #pragma once
 #include "Component.h"
-#include "KRMath.h"
+#include <KRMath.h>
 
 namespace KREN
 {

@@ -38,9 +38,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Engine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -59,7 +56,7 @@
     <ClCompile Include="ConsoleLogger.cpp">
       <Filter>Logger</Filter>
     </ClCompile>
-    <ClCompile Include="Time.cpp">
+    <ClCompile Include="KRTime.cpp">
       <Filter>Time</Filter>
     </ClCompile>
     <ClCompile Include="SDLInputManager.cpp">
@@ -90,9 +87,6 @@
       <Filter>Input</Filter>
     </ClCompile>
     <ClCompile Include="Input.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MoveCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -127,7 +121,7 @@
     <ClInclude Include="ConsoleLogger.h">
       <Filter>Logger</Filter>
     </ClInclude>
-    <ClInclude Include="Time.h">
+    <ClInclude Include="KRTime.h">
       <Filter>Time</Filter>
     </ClInclude>
     <ClInclude Include="SDLInputManager.h">
@@ -179,6 +173,5 @@
     <ClInclude Include="Input.h">
       <Filter>Input</Filter>
     </ClInclude>
-    <ClInclude Include="MoveCommand.h" />
   </ItemGroup>
 </Project>

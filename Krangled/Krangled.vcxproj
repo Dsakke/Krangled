@@ -84,7 +84,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)3rdParty\$(PlatformTarget)\includes\SDL_Image;$(SolutionDir)3rdParty\$(PlatformTarget)\includes\SDL;%(AdditionalIncludeDirectories);$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDIr)KrangledMath;$(SolutionDir)3rdParty\$(PlatformTarget)\includes\SDL_Image;$(SolutionDir)3rdParty\$(PlatformTarget)\includes\SDL;%(AdditionalIncludeDirectories);$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)3rdParty\$(PlatformTarget)\libs\SDL;%(AdditionalIncludeDirectories);$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)bin\$(platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
@@ -204,17 +204,15 @@ XCOPY "$(SolutionDir)3rdParty\$(PlatformTarget)\Libs\SDL_Image\SDL2_image.dll" "
     <ClCompile Include="IInputAction.cpp" />
     <ClCompile Include="ImageComponent.cpp" />
     <ClCompile Include="Input.cpp" />
-    <ClCompile Include="MoveCommand.cpp" />
     <ClCompile Include="SDLInputManager.cpp" />
     <ClCompile Include="Loaders.cpp" />
     <ClCompile Include="Logger.cpp" />
-    <ClCompile Include="main.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SDLRenderer.cpp" />
     <ClCompile Include="Texture.cpp" />
-    <ClCompile Include="Time.cpp" />
+    <ClCompile Include="KRTime.cpp" />
     <ClCompile Include="Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -229,7 +227,6 @@ XCOPY "$(SolutionDir)3rdParty\$(PlatformTarget)\Libs\SDL_Image\SDL2_image.dll" "
     <ClInclude Include="ImageComponent.h" />
     <ClInclude Include="IRenderer.h" />
     <ClInclude Include="KRKeyCodes.h" />
-    <ClInclude Include="MoveCommand.h" />
     <ClInclude Include="SDLRenderer.h" />
     <ClInclude Include="SDLTexture.h" />
     <ClInclude Include="Settings.h" />
@@ -245,7 +242,7 @@ XCOPY "$(SolutionDir)3rdParty\$(PlatformTarget)\Libs\SDL_Image\SDL2_image.dll" "
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Singleton.h" />
-    <ClInclude Include="Time.h" />
+    <ClInclude Include="KRTime.h" />
     <ClInclude Include="Transform.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

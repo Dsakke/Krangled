@@ -3,7 +3,7 @@
 #include <string>
 #include "Scene.h"
 #include "GameObject.h"
-#include "Time.h"
+#include "KRTime.h"
 #include "SDL.h"
 #include "Renderer.h"
 #include "ImageComponent.h"
@@ -52,10 +52,10 @@ void KREN::Engine::Run()
 	// In the future we will have a better way to end the application, for now we just close the console window
 	while (running)
 	{
-		Time::GetInstance().UpdateTime();
+		KRTime::GetInstance().UpdateTime();
 		Input::GetInstance().GetInputManager().lock()->UpdateInput();
 		std::shared_ptr<Scene> currentScene = SceneManager::GetInstance().GetCurrentScene();
-		m_FixedUpdateTimer += Time::GetInstance().GetElapsedTime();
+		m_FixedUpdateTimer += KRTime::GetInstance().GetElapsedTime();
 		if (m_FixedUpdateTimer >= m_FixedUpdateInterval)
 		{
 			currentScene->FixedUpdate();

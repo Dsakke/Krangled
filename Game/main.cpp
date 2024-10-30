@@ -1,6 +1,6 @@
 #pragma once
-#include "Engine.h"
-#include "Logger.h"
+#include "engine.h"
+
 int main()
 {
 	KREN::Engine engine{};
