@@ -36,6 +36,9 @@
     <Filter Include="Rendering">
       <UniqueIdentifier>{4958b9bc-48d6-4e8f-9449-f031bd7bc521}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Events">
+      <UniqueIdentifier>{7896e402-678d-4334-8b5b-eb98853e6665}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine.cpp">
@@ -88,6 +91,9 @@
     </ClCompile>
     <ClCompile Include="Input.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MemberEventTarget.h">
+      <Filter>Events</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -172,6 +178,15 @@
     </ClInclude>
     <ClInclude Include="Input.h">
       <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Event.h">
+      <Filter>Events</Filter>
+    </ClInclude>
+    <ClInclude Include="IEventTarget.h">
+      <Filter>Events</Filter>
+    </ClInclude>
+    <ClInclude Include="EventTarget.h">
+      <Filter>Events</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

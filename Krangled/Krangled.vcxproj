@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -204,6 +204,7 @@ XCOPY "$(SolutionDir)3rdParty\$(PlatformTarget)\Libs\SDL_Image\SDL2_image.dll" "
     <ClCompile Include="InputAction.cpp" />
     <ClCompile Include="ImageComponent.cpp" />
     <ClCompile Include="Input.cpp" />
+    <ClCompile Include="MemberEventTarget.h" />
     <ClCompile Include="SDLInputManager.cpp" />
     <ClCompile Include="Loaders.cpp" />
     <ClCompile Include="Logger.cpp" />
@@ -216,6 +217,8 @@ XCOPY "$(SolutionDir)3rdParty\$(PlatformTarget)\Libs\SDL_Image\SDL2_image.dll" "
     <ClCompile Include="Transform.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="EventTarget.h" />
+    <ClInclude Include="IEventTarget.h" />
     <ClInclude Include="ICommand.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="ConsoleLogger.h" />
@@ -227,6 +230,7 @@ XCOPY "$(SolutionDir)3rdParty\$(PlatformTarget)\Libs\SDL_Image\SDL2_image.dll" "
     <ClInclude Include="ImageComponent.h" />
     <ClInclude Include="IRenderer.h" />
     <ClInclude Include="KRKeyCodes.h" />
+    <ClInclude Include="Event.h" />
     <ClInclude Include="SDLRenderer.h" />
     <ClInclude Include="SDLTexture.h" />
     <ClInclude Include="Settings.h" />
