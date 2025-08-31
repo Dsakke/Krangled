@@ -1,0 +1,22 @@
+set_target_properties(Krangled PROPERTIES LINKER_LANGUAGE CXX)
+
+set (GAME_SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR})
+set (GAME_INCLUDE_DIR ${CMAKE_CURRENT_LIST_DIR})
+
+file(GLOB_RECURSE GAME_SOURCE_FILES CONFIGURE_DEPENDS
+    "${GAME_SOURCE_DIR}/*.cpp"
+    "${GAME_INCLUDE_DIR}/*.h"
+)
+
+
+set(GAME_SOURCES ${GAME_SOURCE_FILES})
+
+set (KRANGLED_INCLUDE_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}/../Krangled")
+
+include_directories(${GAME_INCLUDE_DIR} ${KRANGLED_INCLUDE_DIRECTORY})
+
+add_executable(Game ${GAME_SOURCES})
+
+target_include_directories(Game PRIVATE ${CMAKE_CURRENT_LIST_DIR})
+target_link_libraries (Game PRIVATE Krangled)
+find_library(Krangled  PRIVATE "${CMAKE_BINARY_DIR}/bin}")
