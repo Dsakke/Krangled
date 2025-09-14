@@ -7,11 +7,11 @@ file(GLOB_RECURSE KRANGLED_MATH_FILES CONFIGURE_DEPENDS
 	"${CMAKE_CURRENT_SOURCE_DIR}/KrangledMath/KrangledMath/KRMath/*.h"
 )
 
-set(3rdPartyFolder "${CMAKE_CURRENT_SOURCE_DIR}/../3rdParty/")
-set(SDL2_INCLUDE_DIR "${3rdPartyFolder}x64/includes/SDL")
-set(SDL2_LIB_DIR "${3rdPartyFolder}x64/Libs/SDL")
-set(SDL_IMAGE_INCLUDE_DIR "${3rdPartyFolder}x64/includes/SDL_Image")
-set(SDL_IMAGE_LIB_DIR "${3rdPartyFolder}x64/Libs/SDL_Image")
+set(ThirdPartyFolder "${CMAKE_CURRENT_SOURCE_DIR}/../3rdParty/")
+set(SDL2_INCLUDE_DIR "${ThirdPartyFolder}x64/includes/SDL")
+set(SDL2_LIB_DIR "${ThirdPartyFolder}x64/Libs/SDL")
+set(SDL_IMAGE_INCLUDE_DIR "${ThirdPartyFolder}x64/includes/SDL_Image")
+set(SDL_IMAGE_LIB_DIR "${ThirdPartyFolder}x64/Libs/SDL_Image")
 
 Add_library(Krangled STATIC ${KRANGLED_SOURCES})
 
@@ -35,3 +35,15 @@ target_link_libraries(Krangled
     PRIVATE
         "${SDL_IMAGE_LIB_DIR}/SDL2_Image.lib"
 )
+
+set(KRANGLED_LIB_DIR "${PROJECT_SOURCE_DIR}/3rdParty/x64/Libs")
+
+add_custom_command(TARGET Krangled POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        "${KRANGLED_LIB_DIR}/SDL_Image/SDL2_image.dll"
+        "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}")
+		
+add_custom_command(TARGET Krangled POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        "${KRANGLED_LIB_DIR}/SDL/SDL2.dll"
+        "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}")
