@@ -1,7 +1,7 @@
 #pragma once
 #include <memory>
 #include "KRMath.h"
-#include "Loaders.h"
+#include "..\ResourceManager\Loaders.h"
 
 struct SDL_Texture;
 namespace KREN

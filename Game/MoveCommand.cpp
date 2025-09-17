@@ -1,5 +1,5 @@
 #include "MoveCommand.h"
-#include <Transform.h>
+#include <..\Krangled\Component\Transform.h>
 
 MoveCommand::MoveCommand(std::weak_ptr<KREN::Transform> pTransform)
 	: m_pTransform{ pTransform }

@@ -1,6 +1,6 @@
 #include "Input.h"
 #include "IInputManager.h"
-#include "Settings.h"
+#include "..\Settings.h"
 #ifdef SDL_INPUT
 #include "SDLInputManager.h"
 #endif 

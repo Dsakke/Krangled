@@ -1,5 +1,5 @@
 #include "InputAction.h"
-#include "ICommand.h"
+#include "..\ICommand.h"
 
 
 KREN::InputAction::InputAction(std::unique_ptr<ICommand>&& pCommand, KeyCode keyCode)

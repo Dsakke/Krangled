@@ -1,6 +1,6 @@
 #pragma once
 #include "ICommand.h"
-#include "Transform.h"
+#include "..\Krangled\Component\Transform.h"
 #include <memory>
 
 class MoveCommand final : public KREN::ICommand

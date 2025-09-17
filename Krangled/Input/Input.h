@@ -1,5 +1,5 @@
 #pragma once
-#include "Singleton.h"
+#include "..\Singleton.h"
 #include <memory>
 
 namespace KREN

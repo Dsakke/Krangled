@@ -1,7 +1,7 @@
 #include "SceneManager.h"
 #include "Scene.h"
 #include <string>
-#include "Logger.h"
+#include "..\Logger\Logger.h"
 
 void KREN::SceneManager::AddScene(std::shared_ptr<Scene> scene)
 {

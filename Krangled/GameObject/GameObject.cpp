@@ -1,6 +1,5 @@
 #include "GameObject.h"
-#include "Component.h"
-#include <algorithm>
+#include "..\Component\Component.h"
 
 KREN::GameObject::GameObject(const GameObject& gameObj)
 	: m_pComponents{ gameObj.m_pComponents }

@@ -1,10 +1,10 @@
 #include "Loaders.h"
 #include "SDL.h"
 #include "SDL_image.h"
-#include "Renderer.h"
-#include "Logger.h"
-#include "SDLRenderer.h"
-#include "Texture.h"
+#include "..\Rendering\Renderer.h"
+#include "..\Logger\Logger.h"
+#include "..\Rendering\SDLRenderer.h"
+#include "..\Image\Texture.h"
 #include <print>
 
 std::shared_ptr<KREN::Texture> KREN::KRInternal::LoadImage(const std::string& path)

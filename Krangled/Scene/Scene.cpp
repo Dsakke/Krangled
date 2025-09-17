@@ -1,5 +1,5 @@
 #include "Scene.h"
-#include "GameObject.h"
+#include "..\GameObject\GameObject.h"
 
 KREN::Scene::Scene(const std::string& name, SceneVector pObjects)
 	: m_Name{ name }

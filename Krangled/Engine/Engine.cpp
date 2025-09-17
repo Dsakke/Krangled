@@ -1,22 +1,21 @@
 #include "Engine.h"
-#include "SceneManager.h"
+#include "..\Scene\SceneManager.h"
 #include <string>
-#include "Scene.h"
-#include "GameObject.h"
-#include "KRTime.h"
+#include "..\Scene\Scene.h"
+#include "..\GameObject\GameObject.h"
+#include "..\Time\KRTime.h"
 #include "SDL.h"
-#include "Renderer.h"
-#include "ImageComponent.h"
-#include "IInputManager.h"
-#include "Input.h"
-#include "ICommand.h"
-#include "QuitCommand.h"
-#include "ResourceManager.h"
-#include "Texture.h"
-#include "ConsoleLogger.h"
-#include "Transform.h"
-#include "InputAction.h"
-#include "MoveCommand.h"
+#include "..\Rendering\Renderer.h"
+#include "..\Component\ImageComponent.h"
+#include "..\Input\IInputManager.h"
+#include "..\Input\Input.h"
+#include "..\ICommand.h"
+#include "..\QuitCommand.h"
+#include "..\ResourceManager\ResourceManager.h"
+#include "..\Image\Texture.h"
+#include "..\Logger\ConsoleLogger.h"
+#include "..\Component\Transform.h"
+#include "..\Input\InputAction.h"
 
 void KREN::Engine::Init()
 {
@@ -33,7 +32,6 @@ void KREN::Engine::Init()
 	pTestObject->AddComponent(pTransform);
 
 	std::shared_ptr<IInputManager> pInputManager = Input::GetInstance().GetInputManager().lock();
-	pInputManager->AddButtonDownAction(InputAction{ std::make_unique<MoveCommand>(pTransform), KREN::KeyCode::w });
 
 
 	pScene->AddGameObject(pTestObject);

@@ -1,5 +1,5 @@
 #include "Component.h"
-#include "GameObject.h"
+#include "..\GameObject\GameObject.h"
 
 std::weak_ptr<KREN::GameObject> KREN::Component::GetOwner()
 {

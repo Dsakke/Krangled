@@ -1,10 +1,10 @@
 #include "ImageComponent.h"
 #include "SDL.h"
-#include "Renderer.h"
-#include "Texture.h"
+#include "..\Rendering\Renderer.h"
+#include "..\Image\Texture.h"
 #include "SDL_image.h"
 #include "Transform.h"
-#include "GameObject.h"
+#include "..\GameObject\GameObject.h"
 #include "KRMath.h"
 
 KREN::ImageComponent::ImageComponent(std::shared_ptr<Texture> pTex)

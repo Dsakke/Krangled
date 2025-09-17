@@ -1,6 +1,6 @@
 #include "SDLInputManager.h"
 #include "SDL.h"
-#include "ICommand.h"
+#include "..\ICommand.h"
 #include "SDL_scancode.h"
 #include "SDL_keycode.h"
 

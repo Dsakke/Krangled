@@ -1,6 +1,6 @@
 #include "SDLRenderer.h"
 #include "SDL.h"
-#include "Texture.h"
+#include "..\Image\Texture.h"
 
 void KREN::KRInternal::SDLRenderer::Init()
 {

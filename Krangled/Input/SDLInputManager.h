@@ -1,13 +1,12 @@
 #pragma once
-#include "Singleton.h"
+#include "..\Singleton.h"
 #include <memory>
 #include <unordered_map>
 
 #include "InputAction.h"
 #include "KRKeyCodes.h"
 #include "IInputManager.h"
-#include "InputAction.h"
-#include "ICommand.h"
+#include "..\ICommand.h"
 
 union SDL_Event;
 namespace KREN

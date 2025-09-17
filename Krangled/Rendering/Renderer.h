@@ -1,8 +1,9 @@
 #pragma once
 #include <memory>
-#include "Singleton.h"
+#include "..\Singleton.h"
 #include "KRMath.h"
-#include "Loaders.h"
+#include "..\ResourceManager\Loaders.h"
+
 namespace KREN
 {
 	class Texture;

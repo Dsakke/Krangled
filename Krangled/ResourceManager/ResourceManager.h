@@ -1,5 +1,5 @@
 #pragma once
-#include "Singleton.h"
+#include "..\Singleton.h"
 #include <unordered_map>
 #include <typeindex>
 #include "Loaders.h"

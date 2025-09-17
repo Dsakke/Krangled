@@ -1,5 +1,5 @@
 #include "Renderer.h"
-#include "Settings.h"
+#include "..\Settings.h"
 #include "IRenderer.h"
 #ifdef SDL_RENDERING
 #include "SDLRenderer.h"
