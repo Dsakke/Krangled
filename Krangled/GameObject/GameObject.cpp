@@ -37,7 +37,16 @@ void KREN::GameObject::AddComponent(std::shared_ptr<Component>&& pComp)
 	pComp->SetOwner(weak_from_this());
 }
 
-
+void KREN::GameObject::Start()
+{
+	for (size_t i{}; i < m_pComponents.size(); ++i) 
+	{
+		if (!m_pComponents[i]->HasStarted) // TODO this should be better, an additional loop over all components will be detrimental to performance
+		{
+			m_pComponents[i]->Update();
+		}
+	}
+}
 
 void KREN::GameObject::Update()
 {

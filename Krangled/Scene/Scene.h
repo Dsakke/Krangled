@@ -20,6 +20,7 @@ namespace KREN
 		inline const std::string& GetName() const { return m_Name; }
 		void Setname(const std::string& name);
 
+		void Start();
 		void Update();
 		void FixedUpdate();
 		void Render();
@@ -27,7 +28,6 @@ namespace KREN
 
 	private:
 		std::string m_Name;
-
 		SceneVector m_pGameObjects;
 	};
 }

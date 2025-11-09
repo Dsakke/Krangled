@@ -6,28 +6,50 @@
 namespace KREN
 {
 	class Texture;
+	class Audio;
 	namespace KRInternal
 	{
-		std::shared_ptr<Texture> LoadImage(const std::string& path);
-
-		template<typename T>
-		inline std::shared_ptr<T> Load(const std::string& path)
+		class Loader
 		{
-			Logger::LogError("Type that was tried to load at " + path + "has no supported Load function");
-			return std::make_shared<T>(nullptr);
-		}
+		public:
+			static std::shared_ptr<Texture> LoadImage(const std::string& path);
+			static std::shared_ptr<Audio> LoadAudio(const std::string& path);
 
-
-		template<>
-		inline std::shared_ptr<Texture> Load(const std::string& path)
-		{
-			std::shared_ptr<Texture> pTex = LoadImage(path);
-
-			if (!pTex)
+			template<typename T>
+			inline static std::shared_ptr<T> Load(const std::string& path)
 			{
-				Logger::LogError("Failed to load texture at " + path);
+				Logger::LogError("Type that was tried to load at " + path + "has no supported Load function");
+				return std::make_shared<T>(nullptr);
 			}
-			return pTex;
-		}
+
+			template<>
+			inline static  std::shared_ptr<Texture> Load(const std::string& path)
+			{
+				std::shared_ptr<Texture> pTex = LoadImage(path);
+
+				if (!pTex)
+				{
+					Logger::LogError("Failed to load texture at " + path);
+				}
+				return pTex;
+			}
+
+			template<>
+			inline static std::shared_ptr<Audio> Load(const std::string& path) 
+			{
+				std::shared_ptr<Audio> pAudio = LoadAudio(path);
+			
+				if (!pAudio)
+				{
+					Logger::LogError("Failed to load audio at " + path);
+				}
+
+				return pAudio;
+			}
+
+		private:
+			static std::shared_ptr<Audio> LoadWavToAudio(std::fstream& stream);
+
+		};
 	}
 }

@@ -37,6 +37,6 @@ namespace KREN
 	template<typename T>
 	inline std::shared_ptr<T> ResourceManager::LoadResource(const std::string& path) const
 	{
-		return KRInternal::Load<T>(path);
+		return KRInternal::Loader::Load<T>(path);
 	}
 }

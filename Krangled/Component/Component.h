@@ -1,14 +1,15 @@
 #pragma once
 #include <memory>
+#include "../GameObject/GameObject.h"
+
 namespace KREN
 {
-	class GameObject;
 	class Component : public std::enable_shared_from_this<Component>
 	{
 	public:
 		virtual ~Component() = default;
 
-		// Called on creation of the object
+		// Called before first update of the object in a scene
 		virtual void Start() {}
 
 		// Happens every frame
@@ -22,9 +23,12 @@ namespace KREN
 
 		std::weak_ptr<GameObject> GetOwner();
 
+
 		void SetOwner(std::weak_ptr<GameObject> pNewOwner);
 	private:
+		friend void GameObject::Start();
 
+		bool HasStarted = false;
 		std::weak_ptr<GameObject> m_pOwner;
 	};
 }

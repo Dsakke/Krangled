@@ -28,7 +28,7 @@ namespace KREN
 	private:
 		Renderer();
 		friend class Singleton<Renderer>;
-		friend std::shared_ptr<KREN::Texture> KREN::KRInternal::LoadImage(const std::string& path); // this is bad
+		friend std::shared_ptr<KREN::Texture> KREN::KRInternal::Loader::LoadImage(const std::string& path); // this is bad
 
 		std::shared_ptr<IRenderer> m_pRenderer;
 	};

@@ -8,5 +8,4 @@ int main()
 	engine.Init();
 	engine.Run();
 	engine.Clean();
-	return 0;
 }

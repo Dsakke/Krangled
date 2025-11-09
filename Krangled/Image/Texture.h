@@ -13,7 +13,7 @@ namespace KREN
 
 		SDL_Texture* GetTexture() const;
 	private:
-		friend std::shared_ptr<Texture> KRInternal::LoadImage(const std::string& path);
+		friend std::shared_ptr<Texture> KRInternal::Loader::LoadImage(const std::string& path);
 
 		SDL_Texture* m_pSurface;
 		Texture(SDL_Texture* pSurface);

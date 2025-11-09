@@ -11,13 +11,13 @@ file(GLOB_RECURSE GAME_SOURCE_FILES CONFIGURE_DEPENDS
 )
 
 
-set(GAME_SOURCES ${GAME_SOURCE_FILES})
-
 set (KRANGLED_INCLUDE_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}/../Krangled")
 
 include_directories(${GAME_INCLUDE_DIR} ${KRANGLED_INCLUDE_DIRECTORY})
 
-add_executable(Game ${GAME_SOURCES})
+add_executable(Game ${GAME_SOURCE_FILES})
+
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${GAME_SOURCE_FILES})
 
 target_include_directories(Game PRIVATE ${CMAKE_CURRENT_LIST_DIR})
 target_link_libraries (Game PRIVATE Krangled)

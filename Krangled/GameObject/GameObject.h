@@ -19,6 +19,7 @@ namespace KREN
 		void AddComponent(const std::shared_ptr<Component>& pComp);
 		void AddComponent(std::shared_ptr<Component>&& pComp);
 
+		void Start();
 		void Update();
 		void FixedUpdate();
 		void Render();

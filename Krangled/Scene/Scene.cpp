@@ -44,11 +44,17 @@ KREN::Scene& KREN::Scene::operator=(Scene&& scene) noexcept
 	return *this;
 }
 
-
-
 void KREN::Scene::Setname(const std::string& name)
 {
 	m_Name = name;
+}
+
+void KREN::Scene::Start()
+{
+	for (size_t i{}; i < m_pGameObjects.size(); ++i)
+	{ 
+		m_pGameObjects[i]->Start();
+	}
 }
 
 void KREN::Scene::Update()

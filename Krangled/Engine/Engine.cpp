@@ -15,7 +15,11 @@
 #include "..\Image\Texture.h"
 #include "..\Logger\ConsoleLogger.h"
 #include "..\Component\Transform.h"
+#include "..\Component\AudioSource.h"
+#include "..\Component\ListenerComponent.h"
 #include "..\Input\InputAction.h"
+#include "..\Input\PlaySoundCommand.h"
+#include "..\Audio\AudioManager.h"
 
 void KREN::Engine::Init()
 {
@@ -23,6 +27,7 @@ void KREN::Engine::Init()
 
 	Logger::ChangeService(std::make_unique<ConsoleLogger>());
 
+	::KRInternal::AudioManager::GetInstance();
 	// Test Scene setup
 	std::shared_ptr<Scene> pScene = std::make_shared<Scene>(std::string{ "TestScene" });
 	std::shared_ptr<GameObject> pTestObject = std::make_shared<GameObject>();
@@ -31,8 +36,20 @@ void KREN::Engine::Init()
 	pTestObject->AddComponent(pImageComponent);
 	pTestObject->AddComponent(pTransform);
 
+	std::shared_ptr<AudioSource> pAudioSource = std::make_shared<AudioSource>();
+	std::shared_ptr<Audio> pAudio = ResourceManager::GetInstance().GetResource<KREN::Audio>("Resources\\test.wav");
+	pAudioSource->SetSound(pAudio);
+	pAudioSource->SetIsLooping(false);
+	std::shared_ptr<ListenerComponent> pListener = std::make_shared<ListenerComponent>();
+
+	pTestObject->AddComponent(pAudioSource);
+	pTestObject->AddComponent(pListener);
+
+
 	std::shared_ptr<IInputManager> pInputManager = Input::GetInstance().GetInputManager().lock();
 
+	InputAction playSoundAction{ std::move(std::make_unique<PlaySoundCommand>(pAudioSource)), KeyCode::f };
+	pInputManager->AddButtonUpAction(std::move(playSoundAction));
 
 	pScene->AddGameObject(pTestObject);
 	SceneManager::GetInstance().AddScene(pScene);
