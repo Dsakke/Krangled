@@ -36,6 +36,11 @@ void KREN::Renderer::RenderTexture(std::weak_ptr<Texture> pTexture, int x, int y
 	m_pRenderer->RenderTexture(pTexture, x, y, width, height);
 }
 
+void KREN::Renderer::RenderTexture(std::weak_ptr<Texture> pTexture, const KRM::IRect& destRect, const KRM::IRect& sourceRect)
+{
+	m_pRenderer->RenderTexture(pTexture, destRect, sourceRect);
+}
+
 KREN::Renderer::~Renderer()
 {
 }

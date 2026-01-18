@@ -20,13 +20,14 @@ void KREN::KRInternal::SDLRenderer::Render()
 
 void KREN::KRInternal::SDLRenderer::RenderTexture(std::weak_ptr<Texture> pTexture, const KRM::IRect& destRect)
 {
-	SDL_Rect rect{};
-	rect.x = destRect.x;
-	rect.y = destRect.y;
-	rect.w = destRect.width;
-	rect.h = destRect.height;
+	std::shared_ptr<Texture> pSharedTexture = pTexture.lock();
 
-	SDL_RenderCopy(m_pRenderer, pTexture.lock()->GetTexture(), nullptr, &rect);
+	if (pSharedTexture)
+	{
+		KRM::Vector<int, 2> dimensions = pSharedTexture->GetDimensions();
+		KRM::IRect sourceRect{0,0, dimensions.x, dimensions.y};
+		RenderTexture(pTexture, sourceRect, destRect);
+	}
 }
 
 void KREN::KRInternal::SDLRenderer::RenderTexture(std::weak_ptr<Texture> pTexture, const KRM::Vector<int, 2>& position)
@@ -41,4 +42,21 @@ void KREN::KRInternal::SDLRenderer::RenderTexture(std::weak_ptr<Texture> pTextur
 void KREN::KRInternal::SDLRenderer::RenderTexture(std::weak_ptr<Texture> pTexture, int x, int y, int width, int height)
 {
 	RenderTexture(pTexture, KRM::IRect{ x, y, width, height });
+}
+
+void KREN::KRInternal::SDLRenderer::RenderTexture(std::weak_ptr<Texture> pTexture, const KRM::IRect& destRect, const KRM::IRect& sourceRect)
+{
+	SDL_Rect sdlDestRect{};
+	sdlDestRect.x = destRect.x;
+	sdlDestRect.y = destRect.y;
+	sdlDestRect.w = destRect.width;
+	sdlDestRect.h = destRect.height;
+
+	SDL_Rect sdlSourceRect{};
+	sdlSourceRect.x = destRect.x;
+	sdlSourceRect.y = destRect.y;
+	sdlSourceRect.w = destRect.width;
+	sdlSourceRect.h = destRect.height;
+
+	SDL_RenderCopy(m_pRenderer, pTexture.lock()->GetTexture(), &sdlSourceRect, &sdlDestRect);
 }

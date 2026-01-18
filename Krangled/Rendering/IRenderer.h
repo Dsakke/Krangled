@@ -15,6 +15,7 @@ namespace KREN
 		virtual void RenderTexture(std::weak_ptr<Texture> pTexture, const KRM::IRect& destRect) = 0;
 		virtual void RenderTexture(std::weak_ptr<Texture> pTexture, int x, int y, int width, int height) = 0;
 		virtual void RenderTexture(std::weak_ptr<Texture> pTexture, const KRM::Vector<int, 2>& position) = 0;
+		virtual void RenderTexture(std::weak_ptr<Texture> pTexture, const KRM::IRect& destRect, const KRM::IRect& sourceRect) = 0;
 
 	private:
 	};

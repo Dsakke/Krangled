@@ -20,6 +20,8 @@ namespace KREN
 			void RenderTexture(std::weak_ptr<Texture> pTexture, const KRM::IRect& destRect) override;
 			void RenderTexture(std::weak_ptr<Texture> pTexture, const KRM::Vector<int, 2>& position) override;
 			void RenderTexture(std::weak_ptr<Texture> pTexture, int x, int y, int width, int height) override;
+			void RenderTexture(std::weak_ptr<Texture> pTexture, const KRM::IRect& destRect, const KRM::IRect& sourceRect) override;
+
 
 		private:
 			friend std::shared_ptr<KREN::Texture> Loader::LoadImage(const std::string& path);
